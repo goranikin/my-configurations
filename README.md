@@ -7,25 +7,16 @@ Personal automation for remote servers and dev containers.
 | Directory | Purpose |
 |-----------|---------|
 | [`setup-server/`](setup-server/) | Bootstrap scripts for fresh Ubuntu containers |
-| [`commands/`](commands/) | Day-to-day ops: copy files to a server, run setup remotely, SSH shortcuts |
+| [`commands/`](commands/) | Ubuntu command reference (SSH, file transfer, apt, system) |
 
 ## Typical workflow
 
 ```bash
-# 1. Push setup scripts to a server
-SERVER=user@my-server ./commands/push-to-server.sh
+# 1. Copy setup scripts to a server (see commands/transfer-files.md)
+rsync -avz ./setup-server/ user@host:~/setup-server/
 
-# 2. Run full setup on the server
-SERVER=user@my-server ./commands/run-remote-setup.sh
-
-# Or do both in one step
-SERVER=user@my-server ./commands/run-remote-setup.sh --push
-```
-
-Set `SERVER` once in your shell profile:
-
-```bash
-export SERVER=user@my-server
+# 2. Run setup on the server (see commands/remote-setup.md)
+ssh user@host 'cd ~/setup-server && sudo ./setup.sh'
 ```
 
 ## On GitHub?

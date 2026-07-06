@@ -4,7 +4,7 @@ Bootstrap scripts for fresh Ubuntu containers on remote servers. Installs common
 
 ## Quick start
 
-Copy this folder to the server (or use `../commands/push-to-server.sh` from the repo root), then run:
+Copy this folder to the server (see [`../commands/transfer-files.md`](../commands/transfer-files.md) or [`../commands/remote-setup.md`](../commands/remote-setup.md)), then run:
 
 ```bash
 chmod +x setup.sh install/*.sh
